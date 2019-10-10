@@ -3,10 +3,10 @@ import React from 'react'
 import { MainLayout } from 'layouts/Main'
 import { Seo } from 'systems/Core'
 
-const IndexPage = () => (
+const IntegrationsPage = () => (
   <MainLayout>
-    <Seo title="Home" />
+    <Seo title="Integrations" />
   </MainLayout>
 )
 
-export default IndexPage
+export default IntegrationsPage
