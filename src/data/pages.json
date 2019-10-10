@@ -1,0 +1,50 @@
+[
+  {
+    "path": "/",
+    "component": "Home",
+    "place": "header",
+    "context": {
+      "title": "Home"
+    }
+  },
+  {
+    "path": "/integrations",
+    "component": "Integrations",
+    "place": "header",
+    "context": {
+      "title": "Integrations"
+    }
+  },
+  {
+    "path": "/pricing",
+    "component": "Pricing",
+    "place": "header",
+    "context": {
+      "title": "Pricing"
+    }
+  },
+  {
+    "path": "/register",
+    "component": "Register",
+    "place": "footer",
+    "context": {
+      "title": "Register"
+    }
+  },
+  {
+    "path": "/privacy",
+    "component": "Private",
+    "place": "footer",
+    "context": {
+      "title": "Privacy"
+    }
+  },
+  {
+    "path": "/terms",
+    "component": "Terms",
+    "place": "footer",
+    "context": {
+      "title": "Terms of Service"
+    }
+  }
+]

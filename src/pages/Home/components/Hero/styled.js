@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { fonts, fontSizes, space, color } from 'theme'
+import { fonts, fontSizes, space } from 'theme'
 
 export const container = css`
   position: relative;

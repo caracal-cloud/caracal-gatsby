@@ -7,14 +7,12 @@ module.exports = {
   plugins: [
     {
       resolve: 'gatsby-plugin-resolve-src',
-      options: { addSassLoader: false },
+      options: {
+        addSassLoader: false,
+      },
     },
-    {
-      resolve: 'gatsby-plugin-react-helmet',
-    },
-    {
-      resolve: 'gatsby-plugin-emotion',
-    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-plugin-less',
       options: {
@@ -28,12 +26,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-transformer-json',
     {
-      resolve: 'gatsby-transformer-sharp',
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/src/data`,
+      },
     },
-    {
-      resolve: 'gatsby-plugin-sharp',
-    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
