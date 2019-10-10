@@ -1,2 +1,2 @@
-import './src/theme/global.css'
-import './src/theme/antd.less'
+import './src/global.css'
+import './src/antd.less'
