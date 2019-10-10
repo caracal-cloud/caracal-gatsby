@@ -3,8 +3,8 @@ import React from 'react'
 import { MainLayout } from 'layouts/Main'
 import { Seo } from 'systems/Core'
 
-import { Hero } from './components/Hero'
-import { HowItWorks } from './components/HowItWorks'
+import { Hero } from 'screens/Home/components/Hero'
+import { HowItWorks } from 'screens/Home/components/HowItWorks'
 
 const IndexPage = ({ pageContext: ctx }) => (
   <MainLayout>

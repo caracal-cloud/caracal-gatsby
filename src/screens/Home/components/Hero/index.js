@@ -1,10 +1,10 @@
 import React from 'react'
 import { useStaticQuery, navigate, graphql } from 'gatsby'
-import Image from 'gatsby-image/withIEPolyfill'
+import { Button } from 'antd'
+import Image from 'gatsby-image'
 
 import { Container } from 'systems/Core'
 import * as st from './styled'
-import { Button } from 'antd'
 
 export const Hero = () => {
   const heroImg = useStaticQuery(graphql`
@@ -39,11 +39,7 @@ export const Hero = () => {
           </Button>
         </st.Info>
         <st.ImageWrapper>
-          <Image
-            fixed={heroImg.placeholderImage.childImageSharp.fixed}
-            objectFit="cover"
-            objectPosition="50% 50%"
-          />
+          <Image fixed={heroImg.placeholderImage.childImageSharp.fixed} />
         </st.ImageWrapper>
       </Container>
     </st.Wrapper>

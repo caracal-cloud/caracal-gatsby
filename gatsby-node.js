@@ -2,8 +2,8 @@ const pages = require('./src/data/pages.json')
 
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
-  const component = page.path.slice(1, -1)
-  const item = pages.find(page => page.component === component)
+  const path = page.path.slice(0, -1)
+  const item = pages.find(page => page.path === path)
 
   if (item) {
     const oldPage = { ...page }

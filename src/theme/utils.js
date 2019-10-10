@@ -2,8 +2,12 @@ import { theme } from 'styled-tools'
 
 const toRem = fn => props => {
   const res = parseFloat(fn(props))
-  const { fontSize } = getComputedStyle(document.documentElement)
-  return `${res / parseFloat(fontSize)}rem`
+  const style =
+    typeof window === 'undefined'
+      ? { fontSize: 16 }
+      : getComputedStyle(document.documentElement)
+
+  return `${res / parseFloat(style.fontSize)}rem`
 }
 
 const toPx = fn => props => {
