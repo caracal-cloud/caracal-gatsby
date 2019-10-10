@@ -17,10 +17,22 @@ const pages = {
       title: 'Pricing',
     },
   },
-  PolicyAndTerms: {
-    path: '/policy-and-terms',
+  Register: {
+    path: '/register',
     context: {
-      title: 'Policy and Terms',
+      title: 'Register',
+    },
+  },
+  Privacy: {
+    path: '/privacy',
+    context: {
+      title: 'Privacy',
+    },
+  },
+  Terms: {
+    path: '/terms',
+    context: {
+      title: 'Terms of Service',
     },
   },
 }
