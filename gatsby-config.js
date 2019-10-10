@@ -34,17 +34,17 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sharp',
     },
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'caracal-site',
-    //     short_name: 'caracal',
-    //     start_url: '/',
-    //     background_color: '#663399',
-    //     theme_color: '#663399',
-    //     display: 'minimal-ui',
-    //     icon: '',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'caracal-site',
+        short_name: 'caracal',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: './src/images/caracal-icon.png',
+      },
+    },
   ],
 }
