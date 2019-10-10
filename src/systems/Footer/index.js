@@ -24,7 +24,7 @@ export const Footer = () => {
   const data = useStaticQuery(menuQuery)
   return (
     <st.Wrapper>
-      <st.Container css={st.container}>
+      <st.Container>
         <st.Copyright>© 2020 Caracal LTD.</st.Copyright>
         <st.Menu>
           {data.allPagesJson.edges.map(({ node }) => (
