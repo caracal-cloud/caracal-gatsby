@@ -1,8 +1,10 @@
+import * as mixins from './mixins'
 import colors from './colors'
 
 export * from './utils'
 
 export default {
+  mixins,
   breakpoints: ['600px', '1024px', '1330px'],
   colors: {
     ...colors,
@@ -36,5 +38,10 @@ export default {
   lineHeights: {
     body: 1.5,
     heading: 1.125,
+  },
+  styles: {
+    header: {
+      height: 70,
+    },
   },
 }
