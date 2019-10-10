@@ -39,7 +39,7 @@ export const Menu = () => {
       <li>
         <a
           target="_blank"
-          rel="noreferrer noopen"
+          rel="noopener noreferrer"
           href="https://app.caracal.cloud"
         >
           Demo
