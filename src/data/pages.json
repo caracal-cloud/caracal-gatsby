@@ -33,7 +33,7 @@
   },
   {
     "path": "/privacy",
-    "component": "Private",
+    "component": "Privacy",
     "place": "footer",
     "context": {
       "title": "Privacy"

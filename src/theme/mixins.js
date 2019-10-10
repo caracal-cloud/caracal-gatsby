@@ -1,4 +1,5 @@
 import { css } from '@emotion/core'
+import { space } from 'theme'
 
 export const centerAlign = css`
   display: flex;
@@ -12,4 +13,16 @@ export const pseudoElement = css`
   left: 0;
   display: block;
   content: '';
+`
+
+export const resetList = css`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`
+
+export const horizontalList = gap => css`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: ${gap};
 `

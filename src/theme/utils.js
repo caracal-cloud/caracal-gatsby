@@ -19,4 +19,8 @@ export const fontSizes = str => toRem(theme(`fontSizes.${str}`))
 export const fontWeights = str => theme(`fontWeights.${str}`)
 export const lineHeights = str => theme(`lineHeights.${str}`)
 export const styles = str => theme(`styles.${str}`)
-export const mixins = str => theme(`mixins.${str}`)
+
+export const mixins = (str, ...params) => props => {
+  const res = theme(`mixins.${str}`)(props)
+  return typeof res === 'function' ? res(...params.map(p => p(props))) : res
+}

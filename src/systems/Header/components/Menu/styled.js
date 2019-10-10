@@ -1,14 +1,10 @@
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import { mixins, color, space } from 'theme'
 
 export const List = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-gap: ${space(4)};
-  grid-template-columns: repeat(autofit, auto);
-  grid-auto-flow: column;
+  ${mixins('resetList')};
+  ${mixins('horizontalList', space(4))};
 
   li {
     ${mixins('centerAlign')};

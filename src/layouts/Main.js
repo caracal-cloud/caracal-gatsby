@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import theme from 'theme'
 import { Header } from 'systems/Header'
+import { Footer } from 'systems/Footer'
 
 const query = graphql`
   query SiteTitleQuery {
@@ -26,6 +27,7 @@ export const MainLayout = ({ children }) => {
         <div>
           <main>{children}</main>
         </div>
+        <Footer />
       </React.Fragment>
     </ThemeProvider>
   )
