@@ -7,7 +7,7 @@ export const container = css`
 `
 
 export const Wrapper = styled.div`
-  padding: ${space(5)};
+  padding: ${space(6)};
   background: #000;
 `
 

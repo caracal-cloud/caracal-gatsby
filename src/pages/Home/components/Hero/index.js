@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, navigate } from 'gatsby'
+import { useStaticQuery, navigate, graphql } from 'gatsby'
 import Image from 'gatsby-image/withIEPolyfill'
 
 import { Container } from 'systems/Core'

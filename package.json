@@ -28,15 +28,17 @@
     "xstate": "^4.6.7"
   },
   "devDependencies": {
-    "gatsby-plugin-less": "^3.0.10",
-    "gatsby-transformer-json": "^2.2.13",
+    "@svgr/webpack": "^4.3.3",
     "gatsby-plugin-emotion": "^4.1.10",
+    "gatsby-plugin-less": "^3.0.10",
     "gatsby-plugin-manifest": "^2.2.21",
     "gatsby-plugin-offline": "^3.0.13",
     "gatsby-plugin-react-helmet": "^3.1.11",
     "gatsby-plugin-resolve-src": "^2.0.0",
     "gatsby-plugin-sharp": "^2.2.29",
+    "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-source-filesystem": "^2.1.31",
+    "gatsby-transformer-json": "^2.2.13",
     "gatsby-transformer-sharp": "^2.2.21",
     "less": "^3.10.3",
     "prettier": "^1.18.2"

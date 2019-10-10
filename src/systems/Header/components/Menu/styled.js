@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
 import { mixins, color, space } from 'theme'
 
 export const List = styled.ul`

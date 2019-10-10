@@ -1,5 +1,4 @@
 import { css } from '@emotion/core'
-import { space } from 'theme'
 
 export const centerAlign = css`
   display: flex;
@@ -25,4 +24,24 @@ export const horizontalList = gap => css`
   display: grid;
   grid-auto-flow: column;
   grid-gap: ${gap};
+`
+
+export const px = val => css`
+  padding-top: ${val};
+  padding-bottom: ${val};
+`
+
+export const py = val => css`
+  padding-left: ${val};
+  padding-right: ${val};
+`
+
+export const mx = val => css`
+  margin-top: ${val};
+  margin-bottom: ${val};
+`
+
+export const my = val => css`
+  margin-left: ${val};
+  margin-right: ${val};
 `

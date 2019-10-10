@@ -25,10 +25,10 @@ export default {
   radii: {
     square: 0,
     radius: 6,
-    rounded: 10,
+    rounded: 16,
     circle: 9999,
   },
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [0, 4, 8, 16, 24, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
     body: 400,
