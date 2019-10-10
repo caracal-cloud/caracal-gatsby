@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import { Container, Logo } from 'systems/Core'
@@ -12,7 +13,9 @@ export const Header = ({ siteTitle }) => {
     <st.Wrapper>
       <Container css={st.container}>
         <st.LogoWrapper>
-          <Logo alt={siteTitle} />
+          <Link to="/" title={siteTitle}>
+            <Logo />
+          </Link>
         </st.LogoWrapper>
         <Menu />
       </Container>

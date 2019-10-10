@@ -3,10 +3,10 @@ import React from 'react'
 import { MainLayout } from 'layouts/Main'
 import { Seo } from 'systems/Core'
 
-const IndexPage = () => (
+const PricingPage = ({ pageContext: ctx }) => (
   <MainLayout>
-    <Seo title="Home" />
+    <Seo title={ctx.title} />
   </MainLayout>
 )
 
-export default IndexPage
+export default PricingPage

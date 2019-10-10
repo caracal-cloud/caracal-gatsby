@@ -3,10 +3,10 @@ import React from 'react'
 import { MainLayout } from 'layouts/Main'
 import { Seo } from 'systems/Core'
 
-const PolicyPage = () => (
+const PolicyAndTermsPage = ({ pageContext: ctx }) => (
   <MainLayout>
-    <Seo title="Policy" />
+    <Seo title={ctx.title} />
   </MainLayout>
 )
 
-export default PolicyPage
+export default PolicyAndTermsPage

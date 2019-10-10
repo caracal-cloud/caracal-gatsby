@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, navigate } from 'gatsby'
+import { Link } from 'gatsby'
 import { Button } from 'antd'
 
 import * as st from './styled'
@@ -23,13 +23,8 @@ export const Menu = () => {
         </Link>
       </li>
       <li>
-        <Link to="/policy" activeClassName="active">
-          Policy
-        </Link>
-      </li>
-      <li>
-        <Link to="/terms" activeClassName="active">
-          Terms
+        <Link to="/policy-and-terms" activeClassName="active">
+          Policy and Terms
         </Link>
       </li>
       <li>
