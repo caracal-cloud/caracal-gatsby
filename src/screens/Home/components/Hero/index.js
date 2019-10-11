@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, navigate, graphql } from 'gatsby'
 import { Button } from 'antd'
-import Image from 'gatsby-image'
+import Image from 'gatsby-image/withIEPolyfill'
 
 import { Container } from 'systems/Core'
 import * as st from './styled'
@@ -39,7 +39,11 @@ export const Hero = () => {
           </Button>
         </st.Info>
         <st.ImageWrapper>
-          <Image fixed={heroImg.placeholderImage.childImageSharp.fixed} />
+          <Image
+            fixed={heroImg.placeholderImage.childImageSharp.fixed}
+            objectFit="cover"
+            objectPosition="50% 50%"
+          />
         </st.ImageWrapper>
       </Container>
     </st.Wrapper>
