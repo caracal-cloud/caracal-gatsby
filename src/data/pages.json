@@ -7,35 +7,35 @@
     }
   },
   {
-    "path": "/integrations",
+    "path": "/integrations/",
     "place": "header",
     "context": {
       "title": "Integrations"
     }
   },
   {
-    "path": "/pricing",
+    "path": "/pricing/",
     "place": "header",
     "context": {
       "title": "Pricing"
     }
   },
   {
-    "path": "/register",
+    "path": "/register/",
     "place": "footer",
     "context": {
       "title": "Register"
     }
   },
   {
-    "path": "/privacy",
+    "path": "/privacy/",
     "place": "footer",
     "context": {
       "title": "Privacy"
     }
   },
   {
-    "path": "/terms",
+    "path": "/terms/",
     "place": "footer",
     "context": {
       "title": "Terms of Service"
