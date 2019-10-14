@@ -5,8 +5,8 @@ import * as t from 'theme'
 export const Card = styled.div`
   padding: ${prop('padding', t.space(4))};
   background: white;
-  border: 3px solid #e6e6e6;
-  border-radius: ${t.radii('rounded')};
+  border: 1px solid ${t.color('lightGray.1')};
+  border-radius: ${t.radii('radius')};
 `
 
 Card.Title = styled.h3`

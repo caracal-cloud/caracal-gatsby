@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { Input } from 'antd'
 import { graphql, useStaticQuery, navigate } from 'gatsby'
 import match from 'match-sorter'
 
+import { Card } from 'systems/Core'
 import * as st from './styled'
-import { Input } from 'antd'
 
 const query = graphql`
   query SearchIntegrationsQuery {
@@ -63,7 +64,10 @@ export const SearchIntegrations = () => {
               onClick={() => navigate(node.path)}
             >
               <st.IntegrationThumb>
-                <img src={getImageSrc(node.thumb, allImageSharp.edges)} />
+                <img
+                  alt={node.title}
+                  src={getImageSrc(node.thumb, allImageSharp.edges)}
+                />
               </st.IntegrationThumb>
               <div>
                 <st.IntegrationTitle>{node.title}</st.IntegrationTitle>

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
-import { prop } from 'styled-tools'
 import * as t from 'theme'
+
+import * as core from 'systems/Core'
 
 export const Title = styled.h3`
   margin: 0 0 ${t.space(4)};
@@ -8,11 +9,8 @@ export const Title = styled.h3`
   color: ${t.color('dark.2')};
 `
 
-export const Card = styled.div`
+export const Card = styled(core.Card)`
   padding: ${t.space(2)};
-  background: white;
-  border: 1px solid ${t.color('lightGray.1')};
-  border-radius: ${t.radii('radius')};
 `
 
 export const Header = styled.div`
