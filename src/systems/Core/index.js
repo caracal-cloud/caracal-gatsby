@@ -1,4 +1,5 @@
 export { Card } from './Card'
 export { Container } from './Container'
 export { Logo } from './Logo'
+export { SectionTitle } from './SectionTitle'
 export { Seo } from './Seo'

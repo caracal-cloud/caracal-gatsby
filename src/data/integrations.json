@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "path": "/integrations/arcgis-online",
+    "title": "ArcGIS Online",
+    "type": "Destination",
+    "plan": "Basic",
+    "description": "Connect people, locations, and data using interactive maps created with ArcGIS Online. Work with smart, data-driven styles and intuitive analysis tools that deliver location intelligence. Share your insights with the world or specific groups.",
+    "url": "https://www.arcgis.com/index.html",
+    "thumb": "arcgis.png"
+  },
+  {
+    "id": 2,
+    "path": "/integrations/google-earth",
+    "title": "Google Earth",
+    "type": "Destination",
+    "plan": "Basic",
+    "description": "Google Earth Pro on desktop is free for users with advanced feature needs. Import and export GIS data, and go back in time with historical imagery. Available on PC, Mac or Linux.",
+    "url": "https://www.google.com/earth/versions/#earth-pro",
+    "thumb": "google-earth.png"
+  },
+  {
+    "id": 3,
+    "path": "/integrations/google-sheets",
+    "title": "Google Sheets",
+    "type": "Source",
+    "plan": "Basic",
+    "description": "Google Sheets makes your data pop with colorful charts and graphs. Built-in formulas, pivot tables and conditional formatting options save time and simplify common spreadsheet tasks. All for free.",
+    "url": "https://www.google.com/sheets/about/",
+    "thumb": "google-sheets.png"
+  },
+  {
+    "id": 4,
+    "path": "/integrations/http-api",
+    "title": "HTTP Api",
+    "type": "Source",
+    "plan": "Complete",
+    "description": "Send data from your own mobile application or IoT device. Data is stored for later replay and analysis.",
+    "url": null,
+    "thumb": "http-api.png"
+  },
+  {
+    "id": 5,
+    "path": "/integrations/satellite",
+    "title": "Satellite Collars",
+    "type": "Source",
+    "plan": "Basic",
+    "description": "GPS satellite collars provide near real-time location updates for tracked animals and vehicles. We currently support Orbcomm and Savannah Tracking satellite collar providers.",
+    "url": null,
+    "thumb": "satellite.png"
+  },
+  {
+    "id": 6,
+    "path": "/integrations/trbonet",
+    "title": "TRBOnet",
+    "type": "Source",
+    "plan": "Basic",
+    "description": "TRBOnet Enterprise/Plus provides integrated fully-featured control over single and mutli-site or multi-channel radio systems. The Caracal Connect desktop software enables synchronization with an on-site TRBOnet installation. ",
+    "url": "https://trbonet.com/",
+    "thumb": "trbonet.png"
+  }
+]
