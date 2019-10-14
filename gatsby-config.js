@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: 'Caracal Site',
@@ -47,6 +49,23 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: './src/images/caracal-icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-source-prismic-graphql',
+      options: {
+        repositoryName: 'caracal-site',
+        accessToken: process.env.ACCESS_TOKEN,
+        path: '/preview',
+        previews: true,
+        pages: [
+          {
+            type: 'Application',
+            match: '/integrations/:uid',
+            path: '/integrations',
+            component: require.resolve('./src/templates/integration.js'),
+          },
+        ],
       },
     },
   ],

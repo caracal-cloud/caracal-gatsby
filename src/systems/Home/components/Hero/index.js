@@ -7,29 +7,37 @@ import { Container } from 'systems/Core'
 import * as st from './styled'
 
 export const Hero = () => {
-  const heroImg = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "elephant.png" }) {
+  const data = useStaticQuery(graphql`
+    query HomeHeroQuery {
+      heroImg: file(relativePath: { eq: "elephant.png" }) {
         childImageSharp {
           fixed(width: 600, height: 460) {
             ...GatsbyImageSharpFixed
           }
         }
       }
+      prismic {
+        allHomepages {
+          edges {
+            node {
+              hero_text
+              hero_title
+            }
+          }
+        }
+      }
     }
   `)
+
+  const first = data.prismic.allHomepages.edges[0].node
+  const { hero_title, hero_text } = first
 
   return (
     <st.Wrapper>
       <Container css={st.container}>
         <st.Info>
-          <st.Title>Automate</st.Title>
-          <st.Title>Analyze</st.Title>
-          <st.Title>ACT</st.Title>
-          <st.Subtitle>
-            Automate your geospacial data flows and tap into the tools that
-            enable in-depth analysis.
-          </st.Subtitle>
+          <st.Title>{hero_title[0].text}</st.Title>
+          <st.Subtitle>{hero_text[0].text}</st.Subtitle>
           <Button
             size="large"
             type="primary"
@@ -40,7 +48,7 @@ export const Hero = () => {
         </st.Info>
         <st.ImageWrapper>
           <Image
-            fixed={heroImg.placeholderImage.childImageSharp.fixed}
+            fixed={data.heroImg.childImageSharp.fixed}
             objectFit="cover"
             objectPosition="50% 50%"
           />
