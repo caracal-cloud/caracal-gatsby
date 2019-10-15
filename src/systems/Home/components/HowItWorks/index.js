@@ -1,56 +1,51 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import { ReactComponent as Illustration } from 'images/how-it-works.svg'
 import { Card } from 'systems/Core'
 import * as st from './styled'
 
+const query = graphql`
+  query HowItWorksQuery {
+    prismic {
+      allHomepages {
+        edges {
+          node {
+            how_it_works_boxes {
+              first_block_text
+              first_block_title
+              order
+              second_block_text
+              second_block_title
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 export const HowItWorks = () => {
+  const data = useStaticQuery(query)
+  const { how_it_works_boxes } = data.prismic.allHomepages.edges[0].node
+
   return (
     <st.Container>
       <st.IllustrationWrapper>
         <Illustration />
       </st.IllustrationWrapper>
-      <Card>
-        <Card.Title>Sources</Card.Title>
-        <Card.Body>
-          <Card.Subtitle>Third-party sources</Card.Subtitle>
-          <span>
-            Collect data from your favorite tools such as Google Sheets, TRBOnet
-            and Orbcomm satellite collars.
-          </span>
-          <Card.Subtitle>REST API</Card.Subtitle>
-          <span>
-            Collect and distribute your own geospatial data by integrating with
-            the real-time REST API.
-          </span>
-        </Card.Body>
-      </Card>
-      <Card>
-        <Card.Title>Centre</Card.Title>
-        <Card.Body>
-          <Card.Subtitle>Data management</Card.Subtitle>
-          <span>
-            View and manage your tracked devices. Assign attributes to
-            individuals such as call-sign, blood type and phone number.
-          </span>
-          <Card.Subtitle>Alerts</Card.Subtitle>
-          <span>
-            View connection and mobility alerts. Manage alert recipients.
-          </span>
-        </Card.Body>
-      </Card>
-      <Card>
-        <Card.Title>Destinations</Card.Title>
-        <Card.Body>
-          <Card.Subtitle>Cloud GIS</Card.Subtitle>
-          <span>
-            Send your data to ArcGIS Online and automatically receive
-            feature-rich web layers. Download auto-generated Network KML files.
-          </span>
-          <Card.Subtitle>Reporting</Card.Subtitle>
-          <span>Receive automatic alerts via email or SMS.</span>
-        </Card.Body>
-      </Card>
+      {how_it_works_boxes.map((box, idx) => (
+        <Card key={idx}>
+          <Card.Title>{box.title}</Card.Title>
+          <Card.Body>
+            <Card.Subtitle>{box.first_block_title}</Card.Subtitle>
+            <span>{box.first_block_text[0].text}</span>
+            <Card.Subtitle>{box.second_block_title}</Card.Subtitle>
+            <span>{box.second_block_text[0].text}</span>
+          </Card.Body>
+        </Card>
+      ))}
     </st.Container>
   )
 }
