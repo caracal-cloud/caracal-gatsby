@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, navigate, graphql } from 'gatsby'
 import { Button } from 'antd'
-import Image from 'gatsby-image/withIEPolyfill'
 
 import { Container } from 'systems/Core'
 import * as st from './styled'
@@ -9,11 +8,9 @@ import * as st from './styled'
 export const Hero = () => {
   const data = useStaticQuery(graphql`
     query HomeHeroQuery {
-      heroImg: file(relativePath: { eq: "elephant.png" }) {
-        childImageSharp {
-          fixed(width: 600, height: 460) {
-            ...GatsbyImageSharpFixed
-          }
+      imageSharp(fluid: { src: { regex: "/elephant.png/" } }) {
+        fluid(maxWidth: 600) {
+          src
         }
       }
       prismic {
@@ -47,11 +44,7 @@ export const Hero = () => {
           </Button>
         </st.Info>
         <st.ImageWrapper>
-          <Image
-            fixed={data.heroImg.childImageSharp.fixed}
-            objectFit="cover"
-            objectPosition="50% 50%"
-          />
+          <img src={data.imageSharp.fluid.src} alt="Elephant" />
         </st.ImageWrapper>
       </Container>
     </st.Wrapper>
