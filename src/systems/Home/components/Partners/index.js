@@ -32,8 +32,8 @@ export const Partners = () => {
 
   return (
     <st.Wrapper>
-      <SectionTitle color="dark.0" margin={4}>
-        Partners
+      <SectionTitle margin={4}>
+        <SectionTitle.Text color="dark.0">Partners</SectionTitle.Text>
       </SectionTitle>
       <st.Container>
         {partners.map((partner, idx) => (

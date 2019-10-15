@@ -8,7 +8,9 @@ import * as st from './styled'
 export const Applications = () => {
   return (
     <st.Wrapper>
-      <SectionTitle color="gray.1">Applications</SectionTitle>
+      <SectionTitle>
+        <SectionTitle.Text color="gray.1">Applications</SectionTitle.Text>
+      </SectionTitle>
       <st.Container>
         <SearchIntegrations />
         <UseCases />
