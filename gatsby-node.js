@@ -16,7 +16,7 @@ exports.onCreatePage = ({ page, actions }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createRedirect, createPage } = actions
+  const { createPage } = actions
   const result = await graphql(`
     query {
       prismic {

@@ -1,24 +1,22 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import GatsbyImage from 'gatsby-image'
 
-const Image = styled(GatsbyImage)`
+const Image = styled.img`
+  margin: 0;
   width: 150px;
 `
 
 export const Logo = props => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
+      imageSharp(fluid: { src: { regex: "/logo.png/" } }) {
+        fluid(maxWidth: 150) {
+          src
         }
       }
     }
   `)
 
-  return <Image fluid={data.file.childImageSharp.fluid} {...props} />
+  return <Image src={data.imageSharp.fluid.src} {...props} />
 }
