@@ -10,7 +10,7 @@ const Image = styled(GatsbyImage)`
 export const Logo = props => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
+      file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -20,7 +20,5 @@ export const Logo = props => {
     }
   `)
 
-  return (
-    <Image fluid={data.placeholderImage.childImageSharp.fluid} {...props} />
-  )
+  return <Image fluid={data.file.childImageSharp.fluid} {...props} />
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Input } from 'antd'
-import { graphql, useStaticQuery, navigate } from 'gatsby'
 import match from 'match-sorter'
 
 import * as st from './styled'
@@ -64,23 +64,21 @@ export const SearchIntegrations = ({ noTitle, selected }) => {
             const isSelected = node._meta.uid === selected
 
             return (
-              <st.IntegrationRow
-                key={node._meta.id}
-                selected={isSelected}
-                onClick={() => navigate(`/integrations/${node._meta.uid}`)}
-              >
-                <st.IntegrationThumb>
-                  <img alt={title} src={node.thumb.url} />
-                </st.IntegrationThumb>
-                <div>
-                  <st.IntegrationTitle selected={isSelected}>
-                    {title}
-                  </st.IntegrationTitle>
-                  <st.IntegrationSubtitle>
-                    {node.type} | {plan}
-                  </st.IntegrationSubtitle>
-                </div>
-              </st.IntegrationRow>
+              <Link to={`/integrations/${node._meta.uid}`}>
+                <st.IntegrationRow key={node._meta.id} selected={isSelected}>
+                  <st.IntegrationThumb>
+                    <img alt={title} src={node.thumb.url} />
+                  </st.IntegrationThumb>
+                  <div>
+                    <st.IntegrationTitle selected={isSelected}>
+                      {title}
+                    </st.IntegrationTitle>
+                    <st.IntegrationSubtitle>
+                      {node.type} | {plan}
+                    </st.IntegrationSubtitle>
+                  </div>
+                </st.IntegrationRow>
+              </Link>
             )
           })}
         </st.Integrations>

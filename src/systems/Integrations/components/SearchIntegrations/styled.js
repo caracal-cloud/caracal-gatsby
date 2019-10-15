@@ -52,4 +52,5 @@ export const IntegrationTitle = styled.h4`
 
 export const IntegrationSubtitle = styled.div`
   margin: 0;
+  color: ${t.color('gray.1')};
 `
