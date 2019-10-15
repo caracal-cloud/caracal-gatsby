@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import { MainLayout } from 'layouts/Main'
 import { SectionTitle, Seo } from 'systems/Core'
