@@ -18,7 +18,7 @@ export const Header = styled.div`
 `
 
 export const Integrations = styled.div`
-  max-height: 270px;
+  max-height: 350px;
   overflow-y: auto;
 `
 

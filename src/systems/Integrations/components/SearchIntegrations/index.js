@@ -44,7 +44,7 @@ export const SearchIntegrations = () => {
 
   function handleSearch(ev) {
     const { value } = ev.target
-    const opts = { keys: ['node.title'] }
+    const opts = { keys: ['node.title.0.text'] }
     const newItems = match(applications, value, opts)
     setIntegrations(newItems)
     setSearch(value)
