@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { ifProp } from 'styled-tools'
 import * as t from 'theme'
 
 import * as core from 'systems/Core'
@@ -26,6 +27,7 @@ export const IntegrationRow = styled.div`
   display: flex;
   align-items: center;
   padding: ${t.space(2)};
+  background: ${ifProp('selected', t.color('lightGray.4'), 'transparent')};
 
   &:hover {
     cursor: pointer;
@@ -45,6 +47,7 @@ export const IntegrationThumb = styled.div`
 
 export const IntegrationTitle = styled.h4`
   margin: 0;
+  color: ${ifProp('selected', t.color('forest.2', t.color('dark.2')))};
 `
 
 export const IntegrationSubtitle = styled.div`

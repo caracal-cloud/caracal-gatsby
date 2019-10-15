@@ -58,14 +58,6 @@ module.exports = {
         accessToken: process.env.ACCESS_TOKEN,
         path: '/preview',
         previews: true,
-        pages: [
-          {
-            type: 'Application',
-            match: '/integrations/:uid',
-            path: '/integrations',
-            component: require.resolve('./src/templates/integration.js'),
-          },
-        ],
       },
     },
   ],

@@ -1,3 +1,4 @@
+const path = require('path')
 const pages = require('./src/data/pages.json')
 
 exports.onCreatePage = ({ page, actions }) => {
@@ -12,4 +13,58 @@ exports.onCreatePage = ({ page, actions }) => {
     deletePage(oldPage)
     createPage(page)
   }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createRedirect, createPage } = actions
+  const result = await graphql(`
+    query {
+      prismic {
+        allApplications(sortBy: title_ASC) {
+          edges {
+            node {
+              _meta {
+                id
+                uid
+              }
+              description
+              thumb
+              title
+              type
+              plan {
+                ... on PRISMIC_Plan {
+                  title
+                  price
+                }
+              }
+              link {
+                ... on PRISMIC__ExternalLink {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  result.data.prismic.allApplications.edges.forEach(({ node }, idx) => {
+    const page = {
+      path: `/integrations/${node._meta.uid}`,
+      component: path.resolve('./src/templates/Integration/index.js'),
+      context: {
+        title: node.title[0].text,
+        uid: node._meta.uid,
+      },
+    }
+
+    if (idx === 0) {
+      createPage({
+        ...page,
+        path: '/integrations',
+      })
+    }
+
+    createPage(page)
+  })
 }

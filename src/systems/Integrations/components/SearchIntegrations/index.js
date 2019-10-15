@@ -36,7 +36,7 @@ const query = graphql`
     }
   }
 `
-export const SearchIntegrations = () => {
+export const SearchIntegrations = ({ noTitle, selected }) => {
   const data = useStaticQuery(query)
   const { edges: applications } = data.prismic.allApplications
   const [integrations, setIntegrations] = useState(applications)
@@ -52,28 +52,37 @@ export const SearchIntegrations = () => {
 
   return (
     <div>
-      <st.Title>Search</st.Title>
+      {!noTitle && <st.Title>Search</st.Title>}
       <st.Card>
         <st.Header>
           <Input.Search size="large" value={search} onChange={handleSearch} />
         </st.Header>
         <st.Integrations>
-          {integrations.map(({ node }) => (
-            <st.IntegrationRow
-              key={node._meta.id}
-              onClick={() => navigate(`/integrations/${node._meta.uid}`)}
-            >
-              <st.IntegrationThumb>
-                <img alt={node.title[0].text} src={node.thumb.url} />
-              </st.IntegrationThumb>
-              <div>
-                <st.IntegrationTitle>{node.title[0].text}</st.IntegrationTitle>
-                <st.IntegrationSubtitle>
-                  {node.type} | {node.plan.title[0].text}
-                </st.IntegrationSubtitle>
-              </div>
-            </st.IntegrationRow>
-          ))}
+          {integrations.map(({ node }) => {
+            const title = node.title[0].text
+            const plan = node.plan.title[0].text
+            const isSelected = node._meta.uid === selected
+
+            return (
+              <st.IntegrationRow
+                key={node._meta.id}
+                selected={isSelected}
+                onClick={() => navigate(`/integrations/${node._meta.uid}`)}
+              >
+                <st.IntegrationThumb>
+                  <img alt={title} src={node.thumb.url} />
+                </st.IntegrationThumb>
+                <div>
+                  <st.IntegrationTitle selected={isSelected}>
+                    {title}
+                  </st.IntegrationTitle>
+                  <st.IntegrationSubtitle>
+                    {node.type} | {plan}
+                  </st.IntegrationSubtitle>
+                </div>
+              </st.IntegrationRow>
+            )
+          })}
         </st.Integrations>
       </st.Card>
     </div>
