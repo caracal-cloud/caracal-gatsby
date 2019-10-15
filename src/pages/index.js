@@ -3,7 +3,7 @@ import React from 'react'
 import { MainLayout } from 'layouts/Main'
 import { Seo } from 'systems/Core'
 
-import { Applications, Hero, HowItWorks } from 'systems/Home'
+import { Applications, Hero, HowItWorks, Partners } from 'systems/Home'
 
 const IndexPage = ({ pageContext: ctx }) => (
   <MainLayout>
@@ -11,6 +11,7 @@ const IndexPage = ({ pageContext: ctx }) => (
     <Hero />
     <HowItWorks />
     <Applications />
+    <Partners />
   </MainLayout>
 )
 

@@ -1,4 +1,5 @@
 export { Applications } from './components/Applications'
 export { Hero } from './components/Hero'
 export { HowItWorks } from './components/HowItWorks'
+export { Partners } from './components/Partners'
 export { UseCases } from './components/UseCases'
