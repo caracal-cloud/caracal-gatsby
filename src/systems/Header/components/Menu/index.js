@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, navigate, useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Button, Dropdown, Menu as AntdMenu, Icon } from 'antd'
 
 import * as st from './styled'
