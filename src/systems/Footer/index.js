@@ -27,6 +27,15 @@ export const Footer = () => {
       <st.Container>
         <st.Copyright>© 2020 Caracal LTD.</st.Copyright>
         <st.Menu>
+          <li>
+            <a
+              href="https://app.caracal.cloud/register/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register
+            </a>
+          </li>
           {data.allPagesJson.edges.map(({ node }) => (
             <li key={node.id}>
               <Link to={node.path} activeClassName="active">

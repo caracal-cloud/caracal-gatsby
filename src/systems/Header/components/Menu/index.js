@@ -4,6 +4,8 @@ import { Button, Dropdown, Menu as AntdMenu, Icon } from 'antd'
 
 import * as st from './styled'
 
+const APP_URL = 'https://app.caracal.cloud'
+
 const menuQuery = graphql`
   query HeaderPages {
     allPagesJson(filter: { place: { eq: "header" } }) {
@@ -24,13 +26,13 @@ export const Menu = () => {
   const data = useStaticQuery(menuQuery)
   const userMenu = (
     <AntdMenu>
-      <AntdMenu.Item
-        key="1"
-        onClick={() => window.open('https://app.caracal.cloud')}
-      >
+      <AntdMenu.Item key="1" onClick={() => window.open(APP_URL)}>
         <Icon type="login" /> Login
       </AntdMenu.Item>
-      <AntdMenu.Item key="2" onClick={() => navigate('/register')}>
+      <AntdMenu.Item
+        key="2"
+        onClick={() => window.open(`${APP_URL}/register/`)}
+      >
         <Icon type="plus-circle" /> Register
       </AntdMenu.Item>
     </AntdMenu>

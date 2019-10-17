@@ -21,13 +21,6 @@
     }
   },
   {
-    "path": "/register/",
-    "place": "footer",
-    "context": {
-      "title": "Register"
-    }
-  },
-  {
     "path": "/privacy/",
     "place": "footer",
     "context": {
