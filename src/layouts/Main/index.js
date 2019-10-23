@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ThemeProvider } from '@chakra-ui/core'
+import { ThemeProvider } from 'emotion-theming'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import theme from 'theme'

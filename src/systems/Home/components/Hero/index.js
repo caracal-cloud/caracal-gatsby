@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, navigate, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Button } from 'antd'
 
 import { Container } from 'systems/Core'
@@ -38,7 +38,8 @@ export const Hero = () => {
           <Button
             size="large"
             type="primary"
-            onClick={() => navigate('/register')}
+            href="https://app.caracal.cloud/register"
+            target="_blank"
           >
             Get started
           </Button>
