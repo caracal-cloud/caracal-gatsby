@@ -27,7 +27,7 @@ export const IntegrationBox = ({ integration }) => {
         </st.Info>
       </div>
       {link && (
-        <Button size="large" type="primary" onClick={() => window.open(link)}>
+        <Button size="large" type="primary" href={link} target="_blank">
           Learn more
         </Button>
       )}

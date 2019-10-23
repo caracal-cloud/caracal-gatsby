@@ -11,10 +11,14 @@ export const PlanBox = ({ plan }) => {
   const { uid } = plan._meta
   const hasPrice = Boolean(price)
   const registerUrl = `https://app.caracal.cloud/register?plan=${uid}`
-  const btnType = hasPrice ? 'secondary' : 'primary'
 
-  function handleClick() {
-    hasPrice ? window.open(registerUrl) : contact.handleOpen()
+  const btnProps = {
+    type: hasPrice ? 'secondary' : 'primary',
+    onClick: () => !hasPrice && contact.handleOpen(),
+    ...(hasPrice && {
+      target: '_blank',
+      href: registerUrl,
+    }),
   }
 
   return (
@@ -31,7 +35,7 @@ export const PlanBox = ({ plan }) => {
         ))}
       </st.Features>
       <st.Footer>
-        <Button size="large" type={btnType} onClick={handleClick}>
+        <Button size="large" {...btnProps}>
           {hasPrice ? 'Get started' : 'Contact us'}
         </Button>
       </st.Footer>
