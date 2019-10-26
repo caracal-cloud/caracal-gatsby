@@ -2,24 +2,12 @@ import React from 'react'
 import { Button } from 'antd'
 
 import * as st from './styled'
-import { useContactForm } from 'systems/Contact'
 
 export const PlanBox = ({ plan }) => {
-  const [contact] = useContactForm()
-
   const { title, price, features } = plan
   const { uid } = plan._meta
   const hasPrice = Boolean(price)
   const registerUrl = `https://app.caracal.cloud/register?plan=${uid}`
-
-  const btnProps = {
-    type: hasPrice ? 'secondary' : 'primary',
-    onClick: () => !hasPrice && contact.handleOpen(),
-    ...(hasPrice && {
-      target: '_blank',
-      href: registerUrl,
-    }),
-  }
 
   return (
     <st.Card>
@@ -35,9 +23,18 @@ export const PlanBox = ({ plan }) => {
         ))}
       </st.Features>
       <st.Footer>
-        <Button size="large" {...btnProps}>
-          {hasPrice ? 'Get started' : 'Contact us'}
-        </Button>
+        {hasPrice ? (
+          <Button
+            size="large"
+            type="secondary"
+            href={registerUrl}
+            target="_blank"
+          >
+            Get Started
+          </Button>
+        ) : (
+          <st.Link to="/contact">Contact us</st.Link>
+        )}
       </st.Footer>
     </st.Card>
   )

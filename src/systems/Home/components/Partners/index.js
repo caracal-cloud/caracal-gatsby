@@ -1,57 +1,59 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
 import { SectionTitle } from 'systems/Core'
 import * as st from './styled'
 
-const query = graphql`
-  query HomePartnersQuery {
-    prismic {
-      allHomepages {
-        edges {
-          node {
-            partners {
-              logo
-              title
-              url {
-                ... on PRISMIC__ExternalLink {
-                  url
+export const Partners = () => (
+  <StaticQuery
+    query={graphql`
+      query HomePartnersQuery {
+        prismic {
+          allHomepages {
+            edges {
+              node {
+                partners {
+                  logo
+                  title
+                  url {
+                    ... on PRISMIC__ExternalLink {
+                      url
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-  }
-`
+    `}
+    render={data => {
+      const { partners } = data.prismic.allHomepages.edges[0].node
 
-export const Partners = () => {
-  const data = useStaticQuery(query)
-  const { partners } = data.prismic.allHomepages.edges[0].node
-
-  return (
-    <st.Wrapper>
-      <SectionTitle margin={4}>
-        <SectionTitle.Text color="dark.0">Partners</SectionTitle.Text>
-      </SectionTitle>
-      <st.Container>
-        {partners.map((partner, idx) => (
-          <a
-            key={idx}
-            href={partner.url.url}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <img
-              src={partner.logo.url}
-              width={partner.logo.dimensions.width}
-              height={partner.logo.dimensions.height}
-              alt={partner.title}
-            />
-          </a>
-        ))}
-      </st.Container>
-    </st.Wrapper>
-  )
-}
+      return (
+        <st.Wrapper>
+          <SectionTitle margin={4}>
+            <SectionTitle.Text color="dark.0">Partners</SectionTitle.Text>
+          </SectionTitle>
+          <st.Container>
+            {partners.map((partner, idx) => (
+              <a
+                key={idx}
+                href={partner.url.url}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img
+                  src={partner.logo.url}
+                  width={partner.logo.dimensions.width}
+                  height={partner.logo.dimensions.height}
+                  alt={partner.title}
+                />
+              </a>
+            ))}
+          </st.Container>
+        </st.Wrapper>
+      )
+    }}
+  />
+)

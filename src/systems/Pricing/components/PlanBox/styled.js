@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Link as BaseLink } from 'gatsby'
 import { ifProp } from 'styled-tools'
 import * as t from 'theme'
 
@@ -63,4 +64,16 @@ export const Features = styled.ul`
 export const Footer = styled.div`
   margin-top: ${t.space(5)};
   text-align: center;
+`
+
+export const Link = styled(BaseLink)`
+  background: ${t.color('forest.3')};
+  padding: ${t.space(2)} ${t.space(3)};
+  border-radius: ${t.radii('radius')};
+  font-size: ${t.fontSizes(2)};
+
+  &,
+  &:hover {
+    color: white;
+  }
 `

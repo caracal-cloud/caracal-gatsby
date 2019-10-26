@@ -1,43 +1,11 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, StaticQuery, Link } from 'gatsby'
 import { Input } from 'antd'
 import match from 'match-sorter'
 
 import * as st from './styled'
 
-const query = graphql`
-  query SearchIntegrationsQuery {
-    prismic {
-      allApplications(sortBy: title_ASC) {
-        edges {
-          node {
-            _meta {
-              id
-              uid
-            }
-            description
-            thumb
-            title
-            type
-            plan {
-              ... on PRISMIC_Plan {
-                title
-                price
-              }
-            }
-            link {
-              ... on PRISMIC__ExternalLink {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-export const SearchIntegrations = ({ noTitle, selected }) => {
-  const data = useStaticQuery(query)
+const SearchContainer = ({ data, noTitle, selected }) => {
   const { edges: applications } = data.prismic.allApplications
   const [integrations, setIntegrations] = useState(applications)
   const [search, setSearch] = useState('')
@@ -84,5 +52,46 @@ export const SearchIntegrations = ({ noTitle, selected }) => {
         </st.Integrations>
       </st.Card>
     </div>
+  )
+}
+
+export const SearchIntegrations = props => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query SearchIntegrationsQuery {
+          prismic {
+            allApplications(sortBy: title_ASC) {
+              edges {
+                node {
+                  _meta {
+                    id
+                    uid
+                  }
+                  description
+                  thumb
+                  title
+                  type
+                  plan {
+                    ... on PRISMIC_Plan {
+                      title
+                      price
+                    }
+                  }
+                  link {
+                    ... on PRISMIC__ExternalLink {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        return <SearchContainer data={data} {...props} />
+      }}
+    />
   )
 }

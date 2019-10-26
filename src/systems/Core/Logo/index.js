@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 const Image = styled.img`
@@ -8,15 +8,18 @@ const Image = styled.img`
 `
 
 export const Logo = props => {
-  const data = useStaticQuery(graphql`
-    query {
-      imageSharp(fluid: { src: { regex: "/logo.png/" } }) {
-        fluid(maxWidth: 150) {
-          src
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          imageSharp(fluid: { src: { regex: "/logo.png/" } }) {
+            fluid(maxWidth: 150) {
+              src
+            }
+          }
         }
-      }
-    }
-  `)
-
-  return <Image src={data.imageSharp.fluid.src} {...props} />
+      `}
+      render={data => <Image src={data.imageSharp.fluid.src} {...props} />}
+    />
+  )
 }

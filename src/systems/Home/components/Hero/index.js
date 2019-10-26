@@ -1,53 +1,58 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import { Button } from 'antd'
 
 import { Container } from 'systems/Core'
 import * as st from './styled'
 
 export const Hero = () => {
-  const data = useStaticQuery(graphql`
-    query HomeHeroQuery {
-      imageSharp(fluid: { src: { regex: "/elephant.png/" } }) {
-        fluid(maxWidth: 600) {
-          src
-        }
-      }
-      prismic {
-        allHomepages {
-          edges {
-            node {
-              hero_text
-              hero_title
+  return (
+    <StaticQuery
+      query={graphql`
+        query HomeHeroQuery {
+          imageSharp(fluid: { src: { regex: "/elephant.png/" } }) {
+            fluid(maxWidth: 600) {
+              src
+            }
+          }
+          prismic {
+            allHomepages {
+              edges {
+                node {
+                  hero_text
+                  hero_title
+                }
+              }
             }
           }
         }
-      }
-    }
-  `)
+      `}
+      render={data => {
+        const first = data.prismic.allHomepages.edges[0].node
+        const { hero_title, hero_text } = first
 
-  const first = data.prismic.allHomepages.edges[0].node
-  const { hero_title, hero_text } = first
-
-  return (
-    <st.Wrapper>
-      <Container css={st.container}>
-        <st.Info>
-          <st.Title>{hero_title[0].text}</st.Title>
-          <st.Subtitle>{hero_text[0].text}</st.Subtitle>
-          <Button
-            size="large"
-            type="primary"
-            href="https://app.caracal.cloud/register"
-            target="_blank"
-          >
-            Get started
-          </Button>
-        </st.Info>
-        <st.ImageWrapper>
-          <img src={data.imageSharp.fluid.src} alt="Elephant" />
-        </st.ImageWrapper>
-      </Container>
-    </st.Wrapper>
+        return (
+          <st.Wrapper>
+            <Container css={st.container}>
+              <st.Info>
+                <st.Title>{hero_title[0].text}</st.Title>
+                <st.Subtitle>{hero_text[0].text}</st.Subtitle>
+                <Button
+                  size="large"
+                  type="primary"
+                  href="https://app.caracal.cloud/register"
+                  target="_blank"
+                >
+                  Get started
+                </Button>
+              </st.Info>
+              <st.ImageWrapper>
+                <img src={data.imageSharp.fluid.src} alt="Elephant" />
+              </st.ImageWrapper>
+            </Container>
+          </st.Wrapper>
+        )
+      }}
+    />
   )
 }

@@ -10,17 +10,11 @@ const services = {
 
 const machine = Machine({
   id: 'contactForm',
-  initial: 'closed',
+  initial: 'idle',
   states: {
-    closed: {
-      on: {
-        OPEN: 'opened',
-      },
-    },
-    opened: {
+    idle: {
       on: {
         SUBMIT: 'submitting',
-        CLOSE: 'closed',
       },
     },
     submitting: {
@@ -36,8 +30,8 @@ const machine = Machine({
       },
     },
     sended: {
-      on: {
-        CLOSE: 'closed',
+      after: {
+        5000: 'idle',
       },
     },
   },

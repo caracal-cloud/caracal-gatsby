@@ -9,38 +9,23 @@ export function useContactForm() {
   const [state, send] = useMachine(contactFormMachine)
   const context = useContext(contactFormContext)
 
-  const isClosed = state.matches('closed')
-  const isOpened = state.matches('opened')
+  const isIdle = state.matches('idle')
   const isSubmitting = state.matches('submitting')
   const hasFailed = state.matches('failed')
   const hasSended = state.matches('sended')
 
-  const isModalVisible = isOpened || isSubmitting || hasFailed || hasSended
-
-  function handleOpen() {
-    send('OPEN')
-  }
-
   function handleSubmit(data) {
     send('SUBMIT', { data })
-  }
-
-  function handleClose() {
-    send('CLOSE')
   }
 
   function Provider({ children }) {
     return (
       <contactFormContext.Provider
         value={{
-          handleOpen,
           handleSubmit,
-          handleClose,
           meta: {
-            isClosed,
-            isOpened,
+            isIdle,
             isSubmitting,
-            isModalVisible,
             hasFailed,
             hasSended,
           },
