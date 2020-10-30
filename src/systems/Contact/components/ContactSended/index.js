@@ -5,8 +5,8 @@ export const ContactSended = () => {
   return (
     <Result
       status="success"
-      title="Message sent successfully!"
-      subTitle="We've received your message soon, we ll send you an answer!"
+      title="Message received!"
+      subTitle="We've received your message and will get back to you soon!"
     />
   )
 }

@@ -43,7 +43,7 @@ export const Hero = () => {
                   href="https://app.caracal.cloud/register"
                   target="_blank"
                 >
-                  Get started
+                  GET STARTED
                 </Button>
               </st.Info>
               <st.ImageWrapper>

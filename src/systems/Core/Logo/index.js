@@ -13,7 +13,7 @@ export const Logo = props => {
       query={graphql`
         query {
           imageSharp(fluid: { src: { regex: "/logo.png/" } }) {
-            fluid(maxWidth: 150) {
+            fluid(maxWidth: 250, quality: 100) {
               src
             }
           }

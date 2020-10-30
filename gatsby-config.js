@@ -2,9 +2,9 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'Caracal Site',
-    description: 'Some description here!',
-    author: '@pedronauck',
+    title: 'Caracal',
+    description: 'Geospatial data integration',
+    author: '@caseyslaught',
   },
   plugins: [
     {
@@ -55,9 +55,6 @@ module.exports = {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'caracal-site',
-        accessToken: process.env.ACCESS_TOKEN,
-        path: '/preview',
-        previews: true,
       },
     },
   ],

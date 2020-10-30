@@ -11,7 +11,7 @@ const IndexPage = ({ pageContext: ctx }) => (
     <Hero />
     <HowItWorks />
     <Applications />
-    <Partners />
+    {/*<Partners /> */}
   </MainLayout>
 )
 

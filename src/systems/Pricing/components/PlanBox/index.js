@@ -6,15 +6,25 @@ import * as st from './styled'
 export const PlanBox = ({ plan }) => {
   const { title, price, features } = plan
   const { uid } = plan._meta
-  const hasPrice = Boolean(price)
   const registerUrl = `https://app.caracal.cloud/register?plan=${uid}`
+
+  let priceText = 'On Request';
+  let hasPrice = false;
+  if (price === 0) {
+    priceText = '0';
+    hasPrice = true;
+  } else if (price > 0 ) {
+    priceText = `${price}`
+    hasPrice = true;
+  }
+
 
   return (
     <st.Card>
       <st.Title>{title[0].text}</st.Title>
       <st.PriceBox>
         {hasPrice && <st.Dollar>$</st.Dollar>}
-        <st.Price hasPrice={hasPrice}>{price || 'On Request'}</st.Price>
+        <st.Price hasPrice={hasPrice}>{priceText}</st.Price>
         {hasPrice && <st.Period>per month</st.Period>}
       </st.PriceBox>
       <st.Features>
