@@ -7,10 +7,11 @@ const breakpoint = 768
 
 const WindowDimensionsProvider = ({ children }) => {
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-    isDesktop: window.innerWidth > breakpoint,
+    width: -1,
+    height: -1,
+    isDesktop: true,
   })
+
   useEffect(() => {
     const handleResize = _.throttle(() => {
       setDimensions({
@@ -21,10 +22,16 @@ const WindowDimensionsProvider = ({ children }) => {
     }, 500)
 
     window.addEventListener('resize', handleResize)
+
+    if (dimensions.height < 0 || dimensions.width < 0) {
+      handleResize()
+    }
+
     return () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
   return (
     <WindowDimensionsCtx.Provider value={dimensions}>
       {children}
