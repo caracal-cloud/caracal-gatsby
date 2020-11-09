@@ -7,17 +7,23 @@ import { Container, Logo } from 'systems/Core'
 import { Menu } from './components/Menu'
 import * as st from './styled'
 
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+
 export const Header = ({ siteTitle }) => {
+  const { isDesktop } = useWindowDimensions()
+
   return (
     <st.Wrapper>
-      <Container css={st.container}>
-        <st.LogoWrapper>
-          <Link to="/" title={siteTitle}>
-            <Logo />
-          </Link>
-        </st.LogoWrapper>
+      <st.Container isDesktop={isDesktop}>
+        {isDesktop && (
+          <st.LogoWrapper>
+            <Link to="/" title={siteTitle}>
+              <Logo />
+            </Link>
+          </st.LogoWrapper>
+        )}
         <Menu />
-      </Container>
+      </st.Container>
     </st.Wrapper>
   )
 }

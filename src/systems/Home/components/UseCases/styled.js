@@ -3,6 +3,10 @@ import * as t from 'theme'
 
 import * as core from 'systems/Core'
 
+export const Wrapper = styled.div`
+  flex: 1;
+`
+
 export const Title = styled.h3`
   margin: 0 0 ${t.space(4)};
   font-family: ${t.fonts('heading')};

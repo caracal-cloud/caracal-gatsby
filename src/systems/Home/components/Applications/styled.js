@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 `
 
 export const Container = styled(core.Container)`
-  display: grid;
-  grid-gap: ${t.space(6)};
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: ${props => (props.isDesktop ? 'row' : 'column')};
 `

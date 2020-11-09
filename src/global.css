@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
 
 html {
+  width: 100%;
   font-family: 'Source Sans Pro', sans-serif;
   font-family: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
+  width: 100%;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

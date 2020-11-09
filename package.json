@@ -1,16 +1,17 @@
 {
   "name": "caracal-site",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Caracal, geospatial data integration static public site.",
   "version": "0.1.0",
-  "author": "Pedro Nauck <pedro@upbit.company>",
+  "author": "Casey Slaught <casey@caracal.cloud>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "deploy": "aws --profile caracal-admin s3 sync public/ s3://caracal-site && aws --profile caracal-admin cloudfront create-invalidation --distribution-id E209BRVNAT7TTU --paths '/*'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
@@ -22,6 +23,7 @@
     "formik": "^2.0.1",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.25",
+    "lodash": "^4.17.20",
     "match-sorter": "^4.0.2",
     "prismic-reactjs": "^1.1.1",
     "prop-types": "^15.7.2",

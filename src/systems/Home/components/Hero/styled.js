@@ -2,19 +2,24 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { fonts, fontSizes, space } from 'theme'
 
-export const container = css`
-  position: relative;
+export const Wrapper = styled.div`
+  padding: ${props => (props.isDesktop ? space(5) : space(4))};
+  background: #000;
 `
 
-export const Wrapper = styled.div`
-  padding: ${space(6)};
-  background: #000;
+export const Container = css`
+  display: grid;
+  justify-content: center;
+  align-content: center;
 `
 
 export const Info = styled.div`
   z-index: 2;
-  position: relative;
   max-width: 300px;
+  grid-area: ${props => (props.isDesktop ? '1 / 1 / 1 / 1' : '1 / 1 / 1 / 2')};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export const Title = styled.h2`
@@ -33,7 +38,5 @@ export const Subtitle = styled.div`
 `
 
 export const ImageWrapper = styled.div`
-  position: absolute;
-  top: -64px;
-  right: 0;
+  grid-area: ${props => (props.isDesktop ? '1 / 2 / 1 / 2' : '1 / 1 / 1 / 2')};
 `

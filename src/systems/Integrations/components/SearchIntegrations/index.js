@@ -19,7 +19,7 @@ const SearchContainer = ({ data, noTitle, selected }) => {
   }
 
   return (
-    <div>
+    <st.Wrapper>
       {!noTitle && <st.Title>Search</st.Title>}
       <st.Card>
         <st.Header>
@@ -32,7 +32,7 @@ const SearchContainer = ({ data, noTitle, selected }) => {
             const isSelected = node._meta.uid === selected
 
             return (
-              <Link to={`/integrations/${node._meta.uid}`}>
+              <Link key={title} to={`/integrations/${node._meta.uid}`}>
                 <st.IntegrationRow key={node._meta.id} selected={isSelected}>
                   <st.IntegrationThumb>
                     <img alt={title} src={node.thumb.url} />
@@ -51,7 +51,7 @@ const SearchContainer = ({ data, noTitle, selected }) => {
           })}
         </st.Integrations>
       </st.Card>
-    </div>
+    </st.Wrapper>
   )
 }
 

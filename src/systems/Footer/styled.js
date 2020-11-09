@@ -3,17 +3,20 @@ import { styles, fontSizes, mixins, color, space } from 'theme'
 
 import * as core from 'systems/Core'
 
-export const Container = styled(core.Container)`
-  ${styles('header')};
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  grid-gap: ${space(5)};
-  align-items: center;
-`
-
 export const Wrapper = styled.div`
+  width: 100%;
   background: ${color('header.bg')};
   color: white;
+  padding: 10px;
+`
+
+export const Container = styled(core.Container)`
+  width: 100%;
+  height: ${props => (props.isDesktop ? '70px' : '100px')};
+  display: flex;
+  flex-direction: ${props => (props.isDesktop ? 'row' : 'column')};
+  justify-content: space-between;
+  align-items: center;
 `
 
 export const Copyright = styled.span`

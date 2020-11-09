@@ -10,7 +10,7 @@ export const SectionTitle = styled.h2`
     ${t.mixins('pseudoElement')};
     left: 50%;
     z-index: 0;
-    width: 130%;
+    width: ${props => (props.isDesktop ? '130%' : '100%')};
     height: 100%;
     background: ${p => t.color(p.bg)};
     transform: translateX(-50%) skewX(30deg);

@@ -4,6 +4,7 @@ import * as t from 'theme'
 
 export const Card = styled.div`
   padding: ${prop('padding', t.space(4))};
+  margin: 5px;
   background: white;
   border: 1px solid ${t.color('lightGray.1')};
   border-radius: ${t.radii('radius')};

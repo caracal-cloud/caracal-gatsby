@@ -26,15 +26,15 @@ export const UseCases = () => (
       const { use_cases } = first
 
       return (
-        <div>
-          <st.Title>UseCases</st.Title>
+        <st.Wrapper>
+          <st.Title>Use Cases</st.Title>
           {use_cases.map((node, idx) => (
             <st.Card key={idx}>
               <img width={200} alt={node.thumb.alt} src={node.thumb.url} />
               <p>{node.text[0].text}</p>
             </st.Card>
           ))}
-        </div>
+        </st.Wrapper>
       )
     }}
   />

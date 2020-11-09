@@ -5,13 +5,19 @@ import { SearchIntegrations } from 'systems/Integrations'
 import { UseCases } from 'systems/Home'
 import * as st from './styled'
 
+import { useWindowDimensions } from '../../../WindowDimensionsProvider'
+
 export const Applications = () => {
+  const { isDesktop } = useWindowDimensions()
+
   return (
     <st.Wrapper>
-      <SectionTitle>
-        <SectionTitle.Text color="gray.1">Applications</SectionTitle.Text>
+      <SectionTitle isDesktop={isDesktop}>
+        <SectionTitle.Text color="gray.1" isDesktop={isDesktop}>
+          Applications
+        </SectionTitle.Text>
       </SectionTitle>
-      <st.Container>
+      <st.Container isDesktop={isDesktop}>
         <SearchIntegrations />
         <UseCases />
       </st.Container>

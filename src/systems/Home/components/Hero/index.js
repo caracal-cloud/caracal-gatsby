@@ -5,7 +5,11 @@ import { Button } from 'antd'
 import { Container } from 'systems/Core'
 import * as st from './styled'
 
+import { useWindowDimensions } from '../../../WindowDimensionsProvider'
+
 export const Hero = () => {
+  const { isDesktop } = useWindowDimensions()
+
   return (
     <StaticQuery
       query={graphql`
@@ -32,12 +36,13 @@ export const Hero = () => {
         const { hero_title, hero_text } = first
 
         return (
-          <st.Wrapper>
-            <Container css={st.container}>
-              <st.Info>
+          <st.Wrapper isDesktop={isDesktop}>
+            <Container css={st.Container}>
+              <st.Info isDesktop={isDesktop}>
                 <st.Title>{hero_title[0].text}</st.Title>
                 <st.Subtitle>{hero_text[0].text}</st.Subtitle>
                 <Button
+                  style={{ maxWidth: 200 }}
                   size="large"
                   type="primary"
                   href="https://app.caracal.cloud/register"
@@ -46,7 +51,8 @@ export const Hero = () => {
                   GET STARTED
                 </Button>
               </st.Info>
-              <st.ImageWrapper>
+
+              <st.ImageWrapper isDesktop={isDesktop}>
                 <img src={data.imageSharp.fluid.src} alt="Elephant" />
               </st.ImageWrapper>
             </Container>
