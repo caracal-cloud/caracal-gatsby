@@ -5,6 +5,10 @@ import { MainLayout } from 'layouts/Main'
 import { SectionTitle, Seo } from 'systems/Core'
 import { IntegrationBox, SearchIntegrations } from 'systems/Integrations'
 
+import WindowDimensionsProvider, {
+  WindowDimensionsCtx,
+} from '../../systems/WindowDimensionsProvider'
+
 import * as st from './styled'
 
 const IntegrationPage = ({ pageContext: ctx, data }) => {
@@ -15,18 +19,26 @@ const IntegrationPage = ({ pageContext: ctx, data }) => {
   }
 
   return (
-    <MainLayout>
-      <Seo title={ctx.title} />
-      <st.Wrapper>
-        <SectionTitle bg="lightGray.0">
-          <SectionTitle.Text color="gray.0">Integrations</SectionTitle.Text>
-        </SectionTitle>
-        <st.Container>
-          <SearchIntegrations noTitle selected={ctx.uid} />
-          <IntegrationBox integration={edges[0].node} />
-        </st.Container>
-      </st.Wrapper>
-    </MainLayout>
+    <WindowDimensionsProvider>
+      <WindowDimensionsCtx.Consumer>
+        {({ isDesktop }) => (
+          <MainLayout>
+            <Seo title={ctx.title} />
+            <st.Wrapper isDesktop={isDesktop}>
+              <SectionTitle bg="lightGray.0" isDesktop={isDesktop}>
+                <SectionTitle.Text color="gray.0" isDesktop={isDesktop}>
+                  Integrations
+                </SectionTitle.Text>
+              </SectionTitle>
+              <st.Container isDesktop={isDesktop}>
+                <SearchIntegrations noTitle selected={ctx.uid} />
+                <IntegrationBox integration={edges[0].node} />
+              </st.Container>
+            </st.Wrapper>
+          </MainLayout>
+        )}
+      </WindowDimensionsCtx.Consumer>
+    </WindowDimensionsProvider>
   )
 }
 

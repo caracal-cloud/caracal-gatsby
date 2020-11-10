@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import _ from 'lodash'
 
-const WindowDimensionsCtx = createContext(null)
+export const WindowDimensionsCtx = createContext(null)
 
 const breakpoint = 768
 

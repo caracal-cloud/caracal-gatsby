@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const Container = styled(core.Container)`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: ${t.space(4)};
-  justify-items: center;
+  display: flex;
+  flex-direction: ${props => (props.isDesktop ? 'row' : 'column')};
+  justify-content: center;
 `
